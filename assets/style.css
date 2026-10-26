@@ -1,0 +1,119 @@
+/* Arbel Collective — locked palette: Paper, Sunbaked Clay, Atlantic Blue-Grey (plus shades of those only) */
+:root {
+  --paper: #FAF7F2;
+  --clay: #B5652D;
+  --clay-deep: #8A4A1F;     /* darker shade of Clay, safe for small text */
+  --sea: #4C6B75;           /* Atlantic Blue-Grey */
+  --sea-deep: #2B3F46;      /* darker shade of Blue-Grey, body text */
+  --mist: #F3E6DB;          /* light tint of Clay */
+  --line: rgba(181, 101, 45, 0.30);
+  --line-light: rgba(250, 247, 242, 0.25);
+
+  --font: "Bricolage Grotesque", system-ui, sans-serif;
+
+  --step-0: 1.0625rem;
+  --step-1: 1.3rem;
+  --step-2: 1.75rem;
+  --step-3: clamp(2.1rem, 4.6vw, 3.2rem);
+  --step-4: clamp(2.5rem, 6.4vw, 4.6rem);
+
+  --gutter: clamp(16px, 4vw, 48px);
+  --max: 1120px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--sea-deep);
+  font-family: var(--font);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  font-optical-sizing: auto;
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--clay-deep); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--clay); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: var(--gutter); top: 8px; background: var(--paper); padding: 8px 12px; z-index: 10; }
+
+/* ---------- header (paper, so the logo sits on its own colour) ---------- */
+.site-head { background: #F9F3EC; border-bottom: 1px solid var(--line); }  /* exact background colour of the logo image */
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 10px; padding-bottom: 10px; }
+.brand img { width: 84px; height: auto; }
+.site-nav { display: flex; gap: clamp(16px, 3vw, 32px); }
+.site-nav a { color: var(--sea-deep); text-decoration: none; font-weight: 550; padding: 4px 0; border-bottom: 2px solid transparent; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { border-bottom-color: var(--clay); }
+.page-head :focus-visible, .band :focus-visible, .site-foot :focus-visible { outline-color: var(--paper); }
+
+/* ---------- home hero: the logo is the star ---------- */
+.hero { padding: clamp(40px, 7vw, 88px) 0 clamp(48px, 8vw, 104px); }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(28px, 6vw, 72px); align-items: center; }
+.hero h1 { font-size: var(--step-4); line-height: 1.02; font-weight: 700; letter-spacing: -0.03em; margin: 0 0 0.45em; color: var(--sea-deep); max-width: 14ch; }
+.hero p { font-size: var(--step-1); line-height: 1.5; max-width: 32ch; margin: 0; color: var(--sea); }
+.hero-logo { width: min(420px, 100%); height: auto; justify-self: center; }
+
+/* ---------- sections ---------- */
+main section { padding: clamp(48px, 8vw, 96px) 0; }
+h2 { font-size: var(--step-3); line-height: 1.05; letter-spacing: -0.02em; font-weight: 700; margin: 0 0 0.7em; }
+h3 { font-size: var(--step-2); line-height: 1.15; letter-spacing: -0.01em; font-weight: 650; margin: 0 0 0.3em; }
+.prose { max-width: 68ch; }
+.prose p, .prose li { margin: 0 0 1em; }
+.prose h2 { font-size: var(--step-2); margin: 1.6em 0 0.5em; }
+.prose h2:first-child { margin-top: 0; }
+
+/* blue-grey band for the company list */
+.band { background: var(--clay); color: var(--paper); }
+.band h2 { color: var(--paper); }
+
+.companies { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); column-gap: clamp(24px, 5vw, 64px); }
+.companies li { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 18px 0; border-bottom: 1px solid var(--line-light); align-items: baseline; }
+.companies .name { font-weight: 650; font-size: var(--step-1); }
+.companies .what { grid-column: 1 / -1; color: var(--paper); font-size: 1.12rem; }
+.companies .status { font-size: 0.95rem; font-weight: 600; color: var(--paper); }
+.companies li.live .status { color: var(--clay-deep); background: var(--paper); padding: 2px 10px; border-radius: 999px; }
+.companies li.live .name a { color: var(--paper); }
+
+/* games */
+.game { display: grid; grid-template-columns: auto 1fr; gap: clamp(20px, 4vw, 40px); align-items: center; }
+.game + .game { margin-top: 40px; }
+.icon { width: clamp(96px, 16vw, 140px); aspect-ratio: 1; height: auto; border-radius: 22%; object-fit: cover; }
+.icon.quiet { background: var(--mist); color: var(--clay-deep); display: grid; place-items: center; text-align: center; font-weight: 600; font-size: 1.05rem; padding: 12px; }
+.game p { margin: 0 0 0.8em; max-width: 52ch; }
+.links { display: flex; flex-wrap: wrap; gap: 10px 22px; padding: 0; margin: 0; list-style: none; }
+.badge { display: inline-block; font-size: 0.9rem; color: var(--sea); border: 1px solid var(--line); border-radius: 999px; padding: 2px 12px; margin-bottom: 12px; }
+
+/* inner page heads */
+.page-head { background: var(--clay); color: var(--paper); padding: clamp(36px, 6vw, 72px) 0; }
+.page-head h1 { font-size: var(--step-4); line-height: 0.98; letter-spacing: -0.03em; margin: 0 0 0.25em; font-weight: 700; }
+.page-head p { font-size: var(--step-1); margin: 0; max-width: 40ch; color: var(--paper); }
+.page-head a { color: var(--paper); }
+.crumb { font-size: 0.95rem; margin-bottom: 18px; }
+.title-row { display: flex; align-items: center; gap: clamp(16px, 3vw, 32px); }
+.title-row .icon { width: clamp(80px, 12vw, 120px); }
+
+/* privacy policy */
+.policy ol { padding-left: 1.3em; }
+.policy strong { color: var(--sea-deep); }
+
+/* footer */
+.site-foot { background: var(--clay-deep); color: var(--paper); padding: 40px 0; font-size: 0.95rem; }
+.site-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; align-items: center; }
+.site-foot a { color: var(--paper); }
+
+@media (max-width: 760px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero-logo { width: min(280px, 80%); order: -1; }
+  .companies { grid-template-columns: 1fr; }
+  .game { grid-template-columns: 1fr; }
+}
+
+/* long-text pages: keep the text column lined up with the page edge */
+.wrap.prose { max-width: var(--max); }
+.wrap.prose > * { max-width: 68ch; }
