@@ -117,3 +117,33 @@ h3 { font-size: var(--step-2); line-height: 1.15; letter-spacing: -0.01em; font-
 /* long-text pages: keep the text column lined up with the page edge */
 .wrap.prose { max-width: var(--max); }
 .wrap.prose > * { max-width: 68ch; }
+
+/* ---------- home: games shelf ---------- */
+.shelf-row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 4vw, 48px); }
+.slot p { margin: 0; }
+.tile { display: block; aspect-ratio: 1; width: 100%; max-width: 220px; border-radius: 22%; overflow: hidden; margin-bottom: 16px; }
+.tile img { width: 100%; height: 100%; object-fit: cover; }
+a.tile { box-shadow: 0 10px 0 var(--clay-deep); transition: transform .15s; }
+a.tile:hover { transform: translateY(-4px); }
+.tile--soon { position: relative; border: 2px dashed rgba(250, 247, 242, 0.55); display: grid; place-items: center; }
+.tile--soon svg { position: absolute; inset: 12%; width: 76%; height: 76%; fill: var(--paper); opacity: 0.8; }
+.tile--soon span { font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 700; color: var(--paper); line-height: 1; }
+.slot-name { font-size: var(--step-1); font-weight: 650; }
+.slot-name a { color: var(--paper); }
+.slot-meta { color: var(--paper); opacity: 0.85; font-size: 0.98rem; }
+.slot--soon .slot-name { opacity: 0.9; }
+
+/* ---------- home: watch this space ---------- */
+.watch .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 48px; }
+.watch h2 { margin-bottom: 0.3em; }
+.watch p { margin: 0; max-width: 46ch; font-size: var(--step-1); color: var(--sea); }
+.button { display: inline-block; background: var(--clay-deep); color: var(--paper); text-decoration: none; font-weight: 650; padding: 14px 24px; border-radius: 999px; }
+.button:hover { background: var(--sea-deep); }
+
+@media (max-width: 760px) {
+  .shelf-row { gap: 14px; }
+  .slot-name { font-size: 1.05rem; }
+  .slot-meta { font-size: 0.85rem; }
+  a.tile { box-shadow: 0 6px 0 var(--clay-deep); }
+}
+@media (prefers-reduced-motion: reduce) { a.tile { transition: none; } }
