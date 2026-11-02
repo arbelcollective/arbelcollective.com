@@ -131,6 +131,7 @@ a.tile:hover { transform: translateY(-4px); }
 .slot-name { font-size: var(--step-1); font-weight: 650; }
 .slot-name a { color: var(--paper); }
 .slot-meta { color: var(--paper); opacity: 0.85; font-size: 0.98rem; }
+.slot-meta a { color: inherit; }
 .slot--soon .slot-name { opacity: 0.9; }
 
 /* ---------- home: watch this space ---------- */
