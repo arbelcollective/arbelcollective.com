@@ -119,7 +119,7 @@ h3 { font-size: var(--step-2); line-height: 1.15; letter-spacing: -0.01em; font-
 .wrap.prose > * { max-width: 68ch; }
 
 /* ---------- home: games shelf ---------- */
-.shelf-row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 4vw, 48px); }
+.shelf-row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 4vw, 48px); }
 .slot p { margin: 0; }
 .tile { display: block; aspect-ratio: 1; width: 100%; max-width: 220px; border-radius: 22%; overflow: hidden; margin-bottom: 16px; }
 .tile img { width: 100%; height: 100%; object-fit: cover; }
@@ -142,7 +142,8 @@ a.tile:hover { transform: translateY(-4px); }
 .button:hover { background: var(--sea-deep); }
 
 @media (max-width: 760px) {
-  .shelf-row { gap: 14px; }
+  .shelf-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; }
+  .tile { max-width: 160px; }
   .slot-name { font-size: 1.05rem; }
   .slot-meta { font-size: 0.85rem; }
   a.tile { box-shadow: 0 6px 0 var(--clay-deep); }
